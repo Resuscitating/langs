@@ -21,7 +21,7 @@ import c
 The following are features that I am actively working on implementing:
 1. Declaring user-defined type variables
 2. C-style function overloading/calling
-3. c-style casting (will be implemented using chilaxan's fishhook)
+3. C-style typecasting (will be implemented using chilaxan's fishhook)
 4. pointers
 #
 The following are features that I want to add but am not currently working on (the reasons for not working on them vary, but the most common one is a lack of feasibility):
