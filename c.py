@@ -42,7 +42,7 @@ class __globals_overload__(dict):
                     return __setitem__(cstyle_vars, item, typeinfo[item](value))
                 except:
                     pass
-            raise TypeError(f"variable '{item}' of type {typeinfo[item]} cannot be set to {value} (of type {type(value)})")
+            raise TypeError(f"variable '{item}' of type {typeinfo[item]} cannot be set to '{value}' (of type {type(value)})")
         else:
             valstorage = value
 
