@@ -30,8 +30,7 @@ class __globals_overload__(dict):
 
     def __setitem__(self, item, value):
         global typeinfo, valstorage
-        __setitem__ = {}.__class__.__setitem__
-        
+
         # make import not assign this module into __main__
         if type(value) is type(__builtins__) and value.__name__ == "c":
             return
@@ -39,13 +38,13 @@ class __globals_overload__(dict):
         # if the variable has already been declared, assign to it
         if item in typeinfo:
             if type(value) is typeinfo[item]:
-                return __setitem__(cstyle_vars, item, value)
+                cstyle_vars[item] = value
             else:
                 err = False
                 try:
                     casted_value = typeinfo[item](value)
                     if type(casted_value) is typeinfo[item]:
-                        cstyle_vars.__setitem__(item, casted_value)
+                        cstyle_vars[item] = casted_value
                     else:
                         raise TypeError
                 except:
@@ -88,7 +87,7 @@ class __annotations_overload__(dict):
                 if type(__builtins__.__dict__[item]) is type:
                     type_candidate = __builtins__.__dict__[item]
             if type_candidate is None:
-                TypeError(f"variable declaration for '{item}: {value}' is not a valid. '{item}' is not a type.")
+                raise TypeError(f"variable declaration for '{item}: {value}' is not a valid. '{item}' is not a type.")
 
             # if the value has been stored, set the value
             if valstorage is not sentinal:
