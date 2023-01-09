@@ -84,11 +84,9 @@ class __annotations_overload__(dict):
             if item in cstyle_vars:
                 if type(cstyle_vars[item]) is type:
                     type_candidate = cstyle_vars[item]
-                    print("user defined")
             if type_candidate is None and item in __builtins__.__dict__:
                 if type(__builtins__.__dict__[item]) is type:
                     type_candidate = __builtins__.__dict__[item]
-                    print("builtin")
             if type_candidate is None:
                 TypeError(f"variable declaration for '{item}: {value}' is not a valid. '{item}' is not a type.")
 
